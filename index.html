@@ -1,0 +1,341 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title></title>
+</head>
+<body style="background-color: #F6EADA">
+    <section class="relative h-screen bg-cover bg-center text-white" style="background-image: url('bg.jpeg');">
+<header class="py-6 px-8 flex justify-between items-center relative z-10">
+<h1 class="text-white text-2xl font-bold font-serif">Tea Shop</h1>
+
+<!-- زر القائمة للهاتف -->
+<button id="menu-button" class="block md:hidden p-2 z-50 absolute right-8">
+<span class="block w-6 h-1 bg-white mb-1"></span>
+<span class="block w-6 h-1 bg-white mb-1"></span>
+<span class="block w-6 h-1 bg-white"></span>
+</button>
+
+<!-- القائمة الرئيسية -->
+<nav class="flex justify-end text-xl">
+<nav style="color: #7e634e;" class="hidden md:flex space-x-6 font-inter">
+<a href="#" class="text-white hover:text-[#C7C2AF] transition font-inter">contact us</a>
+<button id="best-sales-button" class="text-white hover:text-[#C7C2AF] transition font-inter">best sales</button>
+<a href="cities.html" class="text-white hover:text-[#C7C2AF] transition font-inter">all tea</a>
+<a href="index.html" class="text-white hover:text-[#C7C2AF] transition font-inter">homepage</a>
+</nav>
+</nav>
+</header>
+
+<!-- القائمة المنسدلة للجوال -->
+<div id="dropdown-menu" class="text-black absolute top-16 right-4 w-48 bg-white shadow-lg rounded-lg hidden z-40">
+<ul class="flex flex-col">
+<li><a href="index.html" class="block px-6 py-4 border-b hover:bg-[#C7C2AF] font-inter">homepage</a></li>
+<li><a href="cities.html" class="block px-6 py-4 border-b hover:bg-[#C7C2AF] font-inter">all tea</a></li>
+<li><a href="#" class="block px-6 py-4 border-b hover:bg-[#C7C2AF] font-inter" id="best-sales-button">best sales</a></li>
+<li><a href="contact.html" class="block px-6 py-4 hover:bg-[#C7C2AF] font-inter">contact us</a></li>
+</ul>
+</div>
+
+<!-- القائمة المنبثقة للمنيو -->
+<div id="menu-dropdown" class="hidden absolute top-16 right-4 bg-[#E8D7C1] shadow-lg rounded-lg w-80 h-88 z-40 overflow-hidden">
+   
+    <div class="p-4 font-serif text-[#5D4A33] text-xl " >
+        <p style="color:#62442d" class="font-serif items-center">MENU 🫖🤎</p>
+        <div style="background-color:#c4a38a;" class="w-full h-1 my-2"></div>
+<a href="#" class="block px-6 py-4  hover:text-[#3C2E1D]">black tea 🍵 </a>
+        <p class="text-black-800 opacity-50 text-sm"> this is dark tea </p>
+<a href="#" class="block px-6 py-4  hover:text-[#3C2E1D]"> green tea 🌿🍵</a>
+        <p class="text-black-800 opacity-50 text-sm"> this is green tea with extra sweet </p>
+<a href="#" class="block px-6 py-4  hover:text-[#3C2E1D]"> honey tea 🧸☕︎
+     </a>
+        <p class="text-black-800 opacity-50 text-sm"> the best honey tea you could ever taste </p>
+<a href="#" class="block px-6 py-4  hover:text-[#3C2E1D]"> milk tea </a>
+        <p class="text-black-800 opacity-50 text-sm"> healthy and sweet </p>
+        <div style="background-color:#c4a38a;" class="w-full h-1 my-5"></div>
+      <p style="color:#62442d" class="font-serif items-center">ingredent🤎</p>
+        <a href="#" class="block px-6 py-4  hover:text-[#3C2E1D]"> honey </a>
+        <p class="text-black-800 opacity-50 text-sm"> only 50$</p>
+<a href="#" class="block px-6 py-4  hover:text-[#3C2E1D]"> pepper </a>
+        <p class="text-black-800 opacity-50 text-sm"> buy one and get 2 </p>
+        </div>
+</div>
+
+<!-- التعتيم الخلفي -->
+<div class="absolute inset-0 bg-black opacity-50 z-0"></div>
+
+<!-- النص في منتصف الصفحة -->
+<div class="relative z-10 flex items-center justify-center h-full">
+<h1 class="text-white text-7xl md:text-6xl font-bold text-center items-center">Wunder TEA CAFE</h1>
+</div>
+<br />  <p class="text-gray-200"> best tea in the world </p>
+</section>
+
+<script>
+// جلب العناصر
+const menuButton = document.getElementById("menu-button");
+const bestSalesButton = document.getElementById("best-sales-button");
+const dropdownMenu = document.getElementById("dropdown-menu");
+const menuDropdown = document.getElementById("menu-dropdown");
+
+// Toggle القائمة المنبثقة عند الضغط على زر best sales
+bestSalesButton.addEventListener("click", function(event) {
+event.stopPropagation(); // لمنع إغلاق القائمة عند الضغط على الزر
+menuDropdown.classList.toggle("hidden");
+});
+
+// Toggle القائمة المنسدلة للهاتف عند الضغط على زر القائمة
+menuButton.addEventListener("click", () => {
+dropdownMenu.classList.toggle("hidden");
+});
+
+// إغلاق القائمة عند الضغط في مكان آخر
+window.addEventListener("click", function(event) {
+if (!dropdownMenu.contains(event.target) && event.target !== menuButton) {
+dropdownMenu.classList.add("hidden");
+}
+if (!menuDropdown.contains(event.target) && event.target !== bestSalesButton) {
+menuDropdown.classList.add("hidden");
+}
+});
+</script>
+<!-- التعتيم الخلفي -->
+<div class="absolute inset-0 bg-black opacity-50 z-0"></div>
+
+<!-- النص في منتصف الصفحة -->
+
+</section>
+
+<script>
+// Toggle menu visibility for mobile
+const menuButton = document.getElementById("menu-button");
+const dropdownMenu = document.getElementById("dropdown-menu");
+
+menuButton.addEventListener("click", () => {
+dropdownMenu.classList.toggle("hidden");
+});
+</script>
+
+
+
+<section class="  px-4 text-center justify-center items-center ">
+<!-- العنوان في المنتصف -->
+<h3 class="text-2xl font-serif text-[#807967] mb-8 mt-7">
+    The finest tea is available with us. Everything you need is
+    available in different types and of high quality.<br />
+    We offer more than 300 types of tea and various tea spices. Take a look now.
+</h3>
+
+<!-- الحاوية الأساسية -->
+<div class="flex justify-center space-x-8 my-8 gap-8 p-5 mr-3">
+<!-- الصورة الأولى (يمين) + النص بجانبها -->
+<div class=" text-center p-4">
+    <div ></div>
+<img src="teak.png" alt="صورة 1" class="w-64 h-64 rounded-full object-cover shadow-lg p-5 "style="border:2px solid black;">
+<p class="mt-4 text-gray-600"> 
+   robust tea with a deep flavor<br /> comes in many varieties like Earl Grey
+    </p>
+</div>
+
+<!-- الصورة الثانية (يسار) + النص بجانبها -->
+<div class="text-center p-4 ">
+<img src="teak2.png" alt="صورة 2" class="w-64 h-64 rounded-full object-cover shadow-lg" style="border:2px solid black;">
+<p class="mt-4 text-gray-600"> 
+    Herbal teas are made from a <br />variety of plants,
+    flowers, and herbs
+    </p>
+</div>
+</div>
+</section>
+
+
+<section>
+<div class="flex justify-center items-center mt-10">
+<!-- تعديل الـ grid لتكون 2 كروت في الشاشات الصغيرة و 4 في الشاشات الكبيرة -->
+<div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8">
+<!-- الكارد 1 -->
+<div class="bg-[#E4D0B7] shadow-md rounded-md text-center p-6 w-[250px] h-[350px] flex flex-col items-center justify-between overflow-hidden">
+<img src="nobg2.png" alt="شعار" class="w-20 h-20 mb-4 opacity-80">
+<p class="text-[#807967] font-serif font-semibold text-sm">
+Green Tea:<br />
+Green tea is known for its numerous health benefits.
+It’s rich in antioxidants and can help improve brain function, increase
+fat burning, and lower the risk of certain types of cancer.
+Its refreshing, light flavor makes it a popular choice for many tea lovers.
+</p>
+</div>
+
+<!-- الكارد 2 -->
+<div class="bg-[#C6B798] shadow-md rounded-md text-center p-6 w-[250px] h-[350px] flex flex-col items-center justify-between overflow-hidden">
+<img src="nobg2.png" alt="شعار" class="w-20 h-20 mb-4 opacity-80">
+<p class="text-[#F7D8B4] font-serif font-semibold text-sm">
+Herbal Tea:<br />
+Herbal teas are made from a variety of plants,
+flowers, and herbs, such as chamomile,
+peppermint, and lavender. They are caffeine-free and often
+used for their calming and soothing effects,
+making them perfect for relaxing after a long day.
+</p>
+</div>
+
+<!-- الكارد 3 -->
+<div class="bg-[#E4D0B7] shadow-md rounded-md text-center p-6 w-[250px] h-[350px] flex flex-col items-center justify-between overflow-hidden">
+<img src="nobg2.png" alt="شعار" class="w-20 h-20 mb-4 opacity-80">
+<p class="text-[#807967] font-serif font-semibold text-sm">
+Oolong Tea:<br />
+Oolong tea is partially fermented,
+giving it a flavor profile that’s somewhere between green and black tea.
+It’s known for its floral and fruity taste and is packed with antioxidants
+that promote heart health, aid in digestion,
+and boost metabolism.
+</p>
+</div>
+
+<!-- الكارد 4 -->
+<div class="bg-[#C0B393] shadow-md rounded-md text-center p-6 w-[250px] h-[350px] flex flex-col items-center justify-between overflow-hidden">
+<img src="nobg2.png" alt="شعار" class="w-20 h-20 mb-4 opacity-80">
+<p class="text-[#F7D8B4] font-serif font-semibold text-sm">
+Black Tea:<br />
+Black tea is a strong, robust tea with a deep flavor.
+It’s the most widely consumed tea in the world and comes in many varieties
+like Earl Grey, Darjeeling, and Assam.
+It contains more caffeine than other types of tea,
+making it a great morning pick-me-up.
+</p>
+</div>
+</div>
+</div>
+</section>
+<br />
+
+<!-- صورة النبتة بزاوية الصفحة في الأجهزة الكبيرة فقط -->
+<div class="flex justify-end items-center   md:block hidden z-20">
+<img src="plant1.png" alt="نبتة" class="w-1/4 rotate-45 absolute right-5 top-[80%] translate-x-10 transform translate-y-1/2" >
+</div>
+
+<div style="background-color:#c4a38a;" class="w-full h-2 my-8"></div>
+
+<section class="explore-foods mb-8 text-center p-10 sm:grid-cols-2">
+<h1 class="text-3xl font-bold mb-6">Best Sales</h1>
+<div class="flex flex-wrap justify-center gap-10 mt-6">
+<!-- العنصر الأول -->
+<a href="#" class="category flex flex-col items-center 
+   text-center transition-transform transform hover:scale-105">
+<img src="five.jpeg" alt="Honey Tea" class="w-[250px] h-[350px] 
+     rounded-lg object-cover shadow-lg hover:shadow-2xl transition-shadow">
+<p class="mt-3 text-lg font-medium">Honey Tea</p>
+</a>
+
+<!-- العنصر الثاني -->
+<a href="#" class="category flex flex-col items-center text-center transition-transform transform hover:scale-105">
+<img src="one.jpeg" alt="Karak Tea" class="w-[250px] h-[350px] rounded-lg object-cover shadow-lg hover:shadow-2xl transition-shadow">
+<p class="mt-3 text-lg font-medium">Karak Tea</p>
+</a>
+
+<!-- العنصر الثالث -->
+<a href="#" class="category flex flex-col items-center text-center transition-transform transform hover:scale-105">
+<img src="two.jpeg" alt="Tea Spices" class="w-[250px] h-[350px] rounded-lg object-cover shadow-lg hover:shadow-2xl transition-shadow">
+<p class="mt-3 text-lg font-medium">Tea Spices</p>
+</a>
+
+<!-- العنصر الرابع -->
+<a href="#" class="category flex flex-col items-center text-center transition-transform transform hover:scale-105">
+<img src="foor.jpeg" alt="Honey and Pepper" class="w-[250px] h-[350px] rounded-lg object-cover shadow-lg hover:shadow-2xl transition-shadow">
+<p class="mt-3 text-lg font-medium">Honey and Pepper</p>
+</a>
+</div>
+</section>
+          
+    <br/>
+      
+<section>
+<div class="mb-6 mt-7">
+<h2 class="text-center text-2xl font-bold mb-4">Our Features</h2>
+<!-- حاوية الصور التي تتحول للتمرير في الشاشات الصغيرة -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 px-4">
+<!-- الصورة الأولى -->
+<div class="relative">
+<img src="two.jpeg" alt="Flower 1" class="w-full h-48 object-cover rounded-lg">
+<div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-lg">
+<a href=""> <p class="text-white text-lg font-medium">Exclusively Imported</p></a>
+</div>
+</div>
+<!-- الصورة الثانية -->
+<div class="relative">
+<img src="three.jpeg" alt="Flower 2" class="w-full h-48 object-cover rounded-lg">
+<div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-lg">
+<a href=""> <p class="text-white text-lg font-medium">We Use the Best Ingredients</p></a>
+</div>
+</div>
+<!-- الصورة الثالثة -->
+<div class="relative">
+<img src="one.jpeg" alt="Flower 3" class="w-full h-48 object-cover rounded-lg">
+<div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-lg">
+<a href=""> <p class="text-white text-lg font-medium">Customers' Favorite</p></a>
+</div>
+</div>
+<!-- الصورة الرابعة -->
+<div class="relative">
+<img src="one.jpeg" alt="Flower 4" class="w-full h-48 object-cover rounded-lg">
+<div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-lg">
+<a href=""> <p class="text-white text-lg font-medium">High Quality</p></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+    <br />
+<!-- القسم الثالث: مجموعة الصور مثل الكاردات -->
+
+<!-- القسم الرابع: كاردات نصية بنفس حجم الصور -->
+    
+    </div>
+    </section>
+        <br />
+        </div>
+
+<br />
+<!-- القسم الخامس: ثلاث صور جنب بعض مع ظل ونص باهت تحتها -->
+
+
+<!-- الفوتر -->
+        <footer class="bg-[#403E35] text-white p-6 w-full mt-7">
+        <div class="max-w-screen-lg mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <!-- نبذة عن الموقع -->
+            <div class="pr-6 text-center">
+                <h3 class="text-xl font-semibold mb-2 text-center">made by marya 2025</h3>
+               
+            </div>
+
+            <!-- خط فاصل في الجوال فقط -->
+            <div class="sm:hidden w-full text-center text-gray-400"><hr /></div>
+
+            <!-- أرقام التواصل -->
+            <div class="pr-6 text-center">
+                <h3 class="text-xl font-semibold mb-2 text-center"> contact us</h3>
+                <ul class="text-sm">
+                    <li>الهاتف: 966 594493686</li>
+                    <li>البريد الإلكتروني: contact@tea.com</li>
+                    <li>الدعم الفني: maryaalsubaie1004@gmail.com</li>
+                </ul>
+            </div>
+            <div class="sm:hidden w-full text-center text-gray-400"><hr /></div>
+            <!-- روابط السوشيال ميديا -->
+            <div class="pr-6 text-center">
+                <h3 class="text-xl font-semibold mb-2 text-center"> foloow us on</h3>
+                <div class="flex justify-center space-x-4">
+                    <a href="#" class="hover:text-[#C7C2AF]">facebook</a>
+                    <span>|</span>
+                    <a href="#" class="hover:text-[#C7C2AF]">x</a>
+                    <span>|</span>
+                    <a href="#" class="hover:text-[#C7C2AF]">instagram</a>
+                </div>
+            </div>
+        </div>
+      
+    </footer>
+</body>
+</html>
